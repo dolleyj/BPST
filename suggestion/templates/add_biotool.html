@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<ul>
+   
+   <li><a href="/biotools/all">Cancel</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<form action="/biotools/add_biotool/" method="post" enctype="multipart/form-data">{% csrf_token %}
+<ul>
+{{form.as_ul}}
+</ul>
+
+<input type="submit" name="submit" value="Add Biotool">
+</form>
+
+{% endblock %}

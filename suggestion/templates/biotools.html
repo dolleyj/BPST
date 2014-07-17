@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block sidebar %}
+<ul>
+   <li><a href="/biotools/user_query">Get Pipeline Suggestion</a></li>
+   <li><a href="/biotools/all">Bioinformatic Tools</a></li>
+   <li><a href="/biotools/add_biotool">Add Bioinformatic Tool</a></li>
+</ul>
+{% endblock %}
+
+
+{% block content %}
+
+
+{% if tool.count > 0 %}
+
+{% for id in tool %}
+<div>
+<h2><a href="/biotools/get/{{ suggestion.tool.id }}/">{{ tool.name }}</a></h2>
+<p>Version:  {{ tool.version }} </p>
+<p>Input Format: {{biotool.input_format}}</a></p>
+<p>Output Format: {{biotool.output_format}}</a></p>
+</div>
+{% endfor %}
+
+{% else %}
+<p> None to show! </p>
+
+{% endif %}
+
+{% endblock %}
+
+
+
+
+

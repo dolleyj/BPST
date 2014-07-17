@@ -1,0 +1,162 @@
+[
+{
+    "pk": 1, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.sequenceontology.org/gff3.shtml", 
+        "variant": "canonical", 
+        "name": "GFF3", 
+        "format": "GFF3"
+    }
+},
+{
+    "pk": 2, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml", 
+        "variant": "protein", 
+        "name": "FASTA (protein)", 
+        "format": "FASTA"
+    }
+},
+{
+    "pk": 3, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml", 
+        "variant": "nucleotide", 
+        "name": "FASTA (nucleotide)", 
+        "format": "FASTA"
+    }
+},
+{
+    "pk": 4, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/Sitemap/samplerecord.html", 
+        "variant": "canonical", 
+        "name": "GenBank Flat File Format", 
+        "format": "GBK"
+    }
+},
+{
+    "pk": 5, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.cbcb.umd.edu/software/glimmer/glim302notes.pdf", 
+        "variant": "canonical", 
+        "name": "Glimmer3 predict", 
+        "format": "predict"
+    }
+},
+{
+    "pk": 6, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://nar.oxfordjournals.org/content/38/6/1767", 
+        "variant": "Sanger", 
+        "name": "FASTQ", 
+        "format": "FASTQ"
+    }
+},
+{
+    "pk": 7, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://nar.oxfordjournals.org/content/38/6/1767", 
+        "variant": "Sanger (paired-end, left)", 
+        "name": "FASTQ (Sanger, paired reads, left)", 
+        "format": "FASTQ"
+    }
+},
+{
+    "pk": 8, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://nar.oxfordjournals.org/content/38/6/1767", 
+        "variant": "Sanger (paired-end, right)", 
+        "name": "FASTQ (Sanger, paired reads, right)", 
+        "format": "FASTQ"
+    }
+},
+{
+    "pk": 9, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://nar.oxfordjournals.org/content/38/6/1767", 
+        "variant": "Sanger (unpaired reads)", 
+        "name": "FASTQ (Sanger, unpaired reads)", 
+        "format": "FASTQ"
+    }
+},
+{
+    "pk": 10, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml", 
+        "variant": "nucleotide (paired reads, left)", 
+        "name": "FASTA (paired reads, left)", 
+        "format": "FASTA"
+    }
+},
+{
+    "pk": 11, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml", 
+        "variant": "nucleotide (paired reads, right)", 
+        "name": "FASTA (paired reads, right)", 
+        "format": "FASTA"
+    }
+},
+{
+    "pk": 12, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml", 
+        "variant": "nucleotide (unpaired reads)", 
+        "name": "FASTA (unpaired reads)", 
+        "format": "FASTA"
+    }
+},
+{
+    "pk": 13, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://bowtie-bio.sourceforge.net/index.shtml", 
+        "variant": "1.0", 
+        "name": "Bowtie 1.0 index", 
+        "format": "Bowtie index"
+    }
+},
+{
+    "pk": 14, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://bowtie-bio.sourceforge.net/bowtie2/manual.shtml#the-bowtie2-build-indexer", 
+        "variant": "2.0", 
+        "name": "Bowtie 2.0 index", 
+        "format": "Bowtie index"
+    }
+},
+{
+    "pk": 15, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://mummer.sourceforge.net/manual/#nucmer", 
+        "variant": "canonical", 
+        "name": "MUMmer delta file", 
+        "format": "Mummer delta"
+    }
+},
+{
+    "pk": 16, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://mblab.wustl.edu/GTF22.html", 
+        "variant": "2.2", 
+        "name": "GTF", 
+        "format": "GTF"
+    }
+}
+]

@@ -1,0 +1,229 @@
+from django.db import models
+
+# Create your models here.
+
+#This was the OLD WORKING model
+#class Biotool(models.Model):
+#
+#	tool_name = models.CharField(max_length = 200)
+#	child_of = models.CharField(max_length = 200)
+#	depends_on = models.CharField(max_length = 200)
+#	purpose = models.CharField(max_length = 200)
+#	data_type = models.CharField(max_length = 200)
+#	data_subtype = models.CharField(max_length = 200)
+#	input_format = models.CharField(max_length = 200)
+#	output_format = models.CharField(max_length = 200)
+#	date_added = models.DateTimeField(auto_now= True)
+#
+#	def __unicode__(self):
+#		return self.tool_name	 
+
+
+#BELOW are the improved Models....
+
+class Datatype(models.Model):
+	""" 
+	Defines the primary types of bioinformatic data (Protein vs Nucleotide) 
+	and its secondary types (amino acid vs DNA, RNA, mRNA, RNA-seq, etc).	
+	"""
+
+	NUCLEOTIDE = 'Nucleotide'
+	PROTEIN = 'Protein'
+	DATATYPE_CHOICES = (
+		(NUCLEOTIDE, 'Nucleotide'),
+		(PROTEIN, 'Protein'),
+	)
+	data_type = models.CharField(max_length=15, choices=DATATYPE_CHOICES, default=NUCLEOTIDE)
+	
+	DATASUBTYPE_CHOICES = (
+		('aa', 'Amino Acid'),
+		('dna', 'DNA'), 
+		('rna', 'RNA'),
+		('mrna', 'mRNA'),
+		('cdna', 'cDNA'),
+		('est', 'EST'),
+		('rnaseq', 'RNA-seq'),
+	)
+	data_subtype = models.CharField(max_length=6, choices=DATASUBTYPE_CHOICES)
+
+	def __unicode__(self):
+		return u'%s - %s' % (self.data_type, self.data_subtype)
+
+
+class Filetype(models.Model):
+	""" This model will define different bioinformatic file types. FASTA, FASTQ, SAM..."""
+
+	filetype_name = models.CharField(max_length=100, unique=True)
+	
+	def __unicode__(self):
+		return self.filetype_name
+
+#class Tooldependency(models.Model):
+#	""" 
+#	This model defines a tool's relationship (parent/child/self) within a tool-suite and 
+#	names the tool(s) that a tool need to have been ran before being initiated. 
+#	Example: 
+#	Bowtie is a 'parent' of 'child' bowtie-build. GeneMarkS is a 'self' relationship (It is a standalone tool).
+#	Bowtie needs bowtie-build to be run before being it can to initiated.
+#	"""
+#	RELATIONSHIP_TYPES = (
+#			    ('Parent', 'Parent'),
+#			    ('Child', 'Child'),
+#			    ('Self', 'Self'),
+#	)
+#	tool_relation = models.CharField(max_length=6, choices=RELATIONSHIP_TYPES)
+#	child_of = models.ForeignKey(Biotool, related_name='child')
+#	depends_on = models.ForeignKey(Biotool, related_name='dependent', null=True)
+
+class Biotool(models.Model):
+	"""
+	This model defines different bioinformatic tools and associated attributes:
+	-Name
+	-Purpose
+	"""
+
+	tool_name = models.CharField(max_length = 100)
+	purpose = models.CharField(max_length = 200)
+	date_added = models.DateTimeField(auto_now= True)
+
+	def __unicode__(self):
+		return self.tool_name
+
+	# link tools with their data types and file formats
+	files = models.ManyToManyField(Filetype, through = 'ToolFiletype') 
+	#is this next line correct?
+	data = models.ManyToManyField(Datatype, through = 'ToolFiletype')
+
+
+#	relation = models.ManyToManyField(Tooldependency, through = 'ToolFiletype', related_name='relative')
+#	dependency = models.ManyToManyField(Tooldependency, through = 'ToolFiletype', related_name='dependent')
+
+
+
+
+class ToolFiletype(models.Model):
+	"""
+	This model links each tool(from Biotool model) with various tool attributes:
+	-Relationship with its relative tools
+		Examples: Bowtie is a 'parent' of 'child' bowtie-build. 
+			  GeneMarkS is a 'self' relationship (It is a standalone tool).
+	-Dependencies on other tools' ouput(s) for its own initiation 
+		Example: Bowtie needs bowtie-build to be run before being it can to initiated.
+	-Datatypes
+		Examples: Protein-Amino Acid, Nucleotide-DNA, Nucleotide-RNA, etc...
+	-Input/Output files types
+		Examples: FASTA, FASTQ, GFF. GTF, SAM, etc...
+	"""	
+	
+	tool = models.ForeignKey(Biotool, related_name='name_of_tool')
+
+	RELATIONSHIP_TYPES = (
+			    ('Parent', 'Parent'),
+			    ('Child', 'Child'),
+			    ('Self', 'Self'),
+	)
+	tool_relation = models.CharField(max_length=6, choices=RELATIONSHIP_TYPES, help_text='For stand-alone tools, select "Self"')
+
+	child_of = models.ManyToManyField(Biotool, related_name='child')
+	depends_on = models.ManyToManyField(Biotool, related_name='dependent', null=True)
+
+
+#	relation = models.ForeignKey(Tooldependency, related_name='relationship')
+#	dependent_on = models.ForeignKey(Tooldependency, related_name='depends_on')
+
+	datatypes = models.ForeignKey(Datatype, related_name='type_of_data')
+	filetype = models.ForeignKey(Filetype, related_name='type_of_file')  
+	required = models.BooleanField(help_text='For optional file types, left "Required" box unchecked.')
+
+	IO_TYPES = (
+	    ('Output', 'Output'),
+	    ('Input', 'Input'),
+	)
+	io_type = models.CharField(max_length=6, choices=IO_TYPES)
+
+	def __unicode__(self):
+		return u'%s - %s - %s(%s)' % (self.tool, self.datatypes, self.filetype, self.io_type) 
+
+
+
+
+
+
+
+
+#----------TO BE TRASHED ---------#
+
+#class Data_type(models.Model):
+#	DATATYPE = (
+#		('Protein', (
+#				('amino acid', 'Amino Acid'),
+#				)
+#		),
+#		('Nucleotide', (
+#				('dna', 'DNA'), 
+#				('rna', 'RNA'),
+#				('mrna', 'mRNA'),
+#				('cdna', 'cDNA'),
+#				('est', 'EST'),
+#				('rnaseq', 'RNA-seq'),
+#				)
+#		)
+#	)
+#
+#
+#	def __unicode__(self):
+#		return self.datatype
+	
+	
+#class IO_formats(models.Model):
+#	FORMAT_CHOICES = ( 
+#		('FASTA', 'fasta'),
+#		('FASTQ', 'fastq'),
+#		('gtf', 'gff'),
+#		('aln', 'ALN'),
+#		('prfl', 'profile'),
+#		('psl', 'PSL'),
+#		('cfg', 'CFG'),
+#		('wig', 'WIG'),
+#		('ebwt', 'EBWT'),
+#		('sam', 'SAM'),
+#		('bam', 'BAM'), 
+#		('cxb', 'CXB'),
+#		('bed', 'BED'),
+#		('tracking', 'TRACKING'),
+#		('refmap', 'REFMAP'),
+#		('tmap', 'TMAP'),
+#		('txt', 'TXT'),
+#		('info', 'INFO'),
+#		('icm', 'ICM'),
+#		('detail', 'DETAIL'),
+#		('predict', 'PREDICT'),
+#		('delta', 'DELTA'),
+#		('pdf', 'PDF'),
+#		('png', 'PNG'),
+#		('fig', 'FIG'),
+#		('ps', 'PS'),
+#		('filter', 'FILTER'),
+#		('gp', 'GP'),
+#		('fplot', 'rplot'),
+#		('stdout', 'STDOUT'),
+#		('msa', 'MSA'),
+#		('hmm', 'HMM'),
+#		('h3*', 'h3m'),
+#		('vcf', 'VCF'),
+#		('razf', 'RAZF'),
+#		('bai', 'BAI'),
+#	)
+#
+#class Biotool(models.Model):
+#	tool_name = models.CharField(max_length = 50)
+#	child_of = models.CharField(max_length = 50)
+#	depends_on = models.CharField(max_length = 50)
+#	purpose = models.CharField(max_length = 100)
+#	data_type = models.ForeignKey(Data_type) 
+#	input_format = models.ForeignKey(IO_formats, related_name='input_format')
+#	output_format = models.ForeignKey(IO_formats, related_name='out_format')
+#	
+#	def __unicode__(self):
+#		return self.tool_name
+

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block sidebar %}
+<ul>
+   <li><a href="/biotools/all">Back to Tool List</a></li>
+</ul>
+{% endblock %}
+
+{% block content %}
+
+<h1>Tool Name: {{ biotool.tool_name }} </h1>
+<p>Purpose: {{ biotool.purpose}} </p>
+<p>Child of: {{ toolfiletype.child_of }} </p>
+<p>Depends on: {{ toolfiletype.depends_on }} </p>
+<p>Data Type: {{ toolfiletype.datatypes }} </p>
+<p> </p>
+<p>{{ toolfiletype.io_type }} Format: {{ toolfiletype.filetype }} {{ toolfiletype.required }}</p>
+<p> </p>
+<p>Date & Time Added: {{ biotool.date_added }} </p>
+
+
+
+
+{% endblock %}
