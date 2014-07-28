@@ -12,14 +12,14 @@
 {% block content %}
 
 
-{% if tool.count > 0 %}
+{% if tools.count > 0 %}
 
-{% for id in tool %}
+{% for tool in tools %}
 <div>
-<h2><a href="/biotools/get/{{ suggestion.tool.id }}/">{{ tool.name }}</a></h2>
+<h2><a href="/biotools/get/{{ tool.id }}/">{{ tool.name }}</a></h2>
 <p>Version:  {{ tool.version }} </p>
-<p>Input Format: {{biotool.input_format}}</a></p>
-<p>Output Format: {{biotool.output_format}}</a></p>
+<p>Primary Site: {{tool.primary_site}}</a></p>
+<p>Latest Publication: {{tool.publication}}</a></p>
 </div>
 {% endfor %}
 

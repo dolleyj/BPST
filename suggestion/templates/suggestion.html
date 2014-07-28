@@ -11,7 +11,19 @@
 
 {% block content %}
 
-<h1> The pipeline suggestion will appear here <h1>
+	<h1> The tool suggestion will appear here </h1>
+
+{% if tools > 2 %}
+
+	<p> The first tool in your pipeline could be...</p>
+		
+	{% for tool in tools %}
+		<li> {{tool}} </li>
+	{% endfor %}
+{% else %}
+	
+	<p> {{ tools }}</p>
+{% endif %}
 
 
 {% endblock %}

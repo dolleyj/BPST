@@ -28,9 +28,15 @@ ALLOWED_HOSTS = []
 
 
 TEMPLATE_DIRS = (
-	'/home/dolley/BPS_Tool/templates',
-	'/home/dolley/BPS_Tool/suggestion/templates',
+	'/home/dolley/git/BPST/templates',
+	'/home/dolley/git/BPST/suggestion/templates',
 	)
+
+STATIC_ROOT = '/home/dolley/git/BPST/assets'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+	('assets', '/home/dolley/git/BPST/static'),
+)
 
 # Application definition
 
@@ -64,7 +70,7 @@ WSGI_APPLICATION = 'BPS_Tool.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/home/dolley/BPS_Tool/biotools.db',
+        'NAME': '/home/dolley/git/BPST/biotools.db',
     }
 }
 
@@ -85,4 +91,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
-STATIC_URL = '/static/'
+SESSION_SERIALIZER='django.contrib.sessions.serializers.PickleSerializer'
+
+

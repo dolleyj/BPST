@@ -12,8 +12,7 @@
 
 <h3>Provide information about your file to get a Bioinformatic Pipeline Suggestion (BPS)...</h3>
 
-<form action="/biotools/user_query/" method="post">
-{% csrf_token %}
+<form action="/biotools/user_query/" method="post">{% csrf_token %}
 <ul>
 {{form.as_ul}}
 </ul>

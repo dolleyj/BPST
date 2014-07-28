@@ -194,7 +194,7 @@ class ToolFiletype( models.Model ):
     io_type = models.CharField( max_length=1, choices=IO_TYPES )
 
     def __str__(self):
-        return "%s- %s- %s" % (self.tool, self.filetype, self.io_type)
+        return "%s- %s- %s" % (self.tool, self.filetype.name, self.io_type)
     
 
 #class ToolFiletypeParam( models.Model ):

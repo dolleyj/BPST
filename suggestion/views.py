@@ -5,6 +5,8 @@ from suggestion.models import Filetype, Tool, StandaloneTool, ErgatisTool, Galax
 from forms import UserQueryForm, FiletypeForm, ToolForm, ToolFiletypeForm
 from django.core.context_processors import csrf
 
+import json
+
 
 
 # Create your views here.
@@ -14,11 +16,11 @@ from django.core.context_processors import csrf
 #	return render_to_response('hello.html'), {'name':name})
 
 def biotools(request):
-	return render_to_response('biotools.html', {'biotools': Tool.objects.all()})
+	return render_to_response('biotools.html', {'tools': Tool.objects.all()})
 
 
-def biotool(request, biotool_id=1):
-	return render_to_response('biotool.html', {'biotool': Tool.objects.get(id=id)})
+def biotool(request, tool_id=1):
+	return render_to_response('biotool.html', {'tool': Tool.objects.get(id=tool_id), 'toolfileype': ToolFiletype.objects.get(id=tool_id)})
 
 def add_biotool(request):
 	if request.POST:
@@ -37,17 +39,22 @@ def add_biotool(request):
 
 	return render_to_response('add_biotool.html', args)
 
+
 def user_query(request):
 	if request.POST:
 		form = UserQueryForm(request.POST)
 		if form.is_valid():
-			# helped out a lot: https://docs.djangoproject.com/en/dev/topics/forms/#field-data
-			user_format = form.cleaned_data['user_format']
-			user_formatvariant = form.cleaned_data['user_formatvariant']
+			#u_formatname = request.session['user_formatname']
+			u_formatname = request.POST.getlist('user_formatname')			
 			
-			#file_format_type(request.POST['user_format', 'user_formatvariant', 'user_formatname'])
-			#build_pipeline(...., Tool)
-			return HttpResponseRedirect('/biotools/suggestion')
+			#u_formatname = form.cleaned_data[]
+			request.session['u_formatname'] = u_formatname
+			
+			
+
+
+			
+			return HttpResponseRedirect('/biotools/suggestion', u_formatname)#, {'tools': tools})
 	else:
 		form = UserQueryForm()
 
@@ -56,21 +63,19 @@ def user_query(request):
 		
 	args['form'] = form
 
-	return render_to_response('user_query.html', {'form': form})
+	return render_to_response('user_query.html', args)
 
-#def file_format_type(request?!, user_format, user_fileformat):
-'''
-Taking the user's input, determine the file format AND data type. 
-'''
 
-def build_pipeline(args from file_format_type, Tool):
-'''
-Take user's input from 'user_query' and find the 1st compatiable tool. Then using that tool's output as NEW
-"user input" find the next tool and store it with the 1st. Repeat until done?!
-''' 
-
-def suggestion(request): #will also take the output of build_pipeline?!
-	return render_to_response('suggestion.html')
+def suggestion(request, init_input=(), tools=()): #will also take the output of build_pipeline?!
+	#passes the user's initial file selection from user_query view into this view
+	init_input = request.session['u_formatname']
+	
+	#Gathers the tool id's that are entered as 'input' and take the selected filetype as input
+	toolfiletype_inputs_list = ToolFiletype.objects.filter(io_type = "i").filter(filetype_id__in = init_input).values_list('tool_id') 
+	#Returns the name(s) of the tool(s) that would accept user's selected filetype
+	tools = Tool.objects.filter(id__in=toolfiletype_inputs_list).values_list('name', flat=True).order_by('name')
+		
+	return render_to_response('suggestion.html', {'tools': tools})
 
 
 
