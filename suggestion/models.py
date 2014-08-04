@@ -1,8 +1,10 @@
 from django.db import models
-#from flow.models import FlowBlueprint, CommandBlueprint, CommandBlueprintParam
+
 
 """
 This module is used to describe bioinformatics tools, their formats, and interdependencies.
+Adopted with permission from J. Orvis at:
+https://github.com/jorvis/Emergence/blob/master/emergence/apps/biotools/models.py
 """
 
 class Filetype( models.Model ):
@@ -139,22 +141,12 @@ class Tool( models.Model ):
             else:
                 param_tuples.append( [param_string, None] )
 
-#        for param in param_tuples:
-#            cbp_param = CommandBlueprintParam.objects.get( command=command_bp, name=param[0] )
-#            ToolFiletypeParam( toolfiletype=tft, \
-#                               command_bp=command_bp, \
-#                               commandblueprintparam=cbp_param, \
-#                               value=param[1] ).save()
-
-
-
 
 class StandaloneTool( Tool ):
     ## This should only be toggled to True if all the dependencies for the tool
     #  are satisfied for any given installation.
     enabled = models.BooleanField( default=False )
 
-#    flow_bp = models.ForeignKey( FlowBlueprint )
 
     def new_flow(self):
         return self.flow_bp.build()
@@ -182,10 +174,8 @@ class ToolFiletype( models.Model ):
     tool = models.ForeignKey(Tool)
     filetype = models.ForeignKey(Filetype)
     description = models.CharField( max_length=200 )
-    required = models.BooleanField()
+    required = models.BooleanField(help_text='Please check if other files are required for running tool')
 
-#    # Record which parameters control how this tool uses/generates this filetype
-#    via_params = models.ManyToManyField(CommandBlueprintParam, through='ToolFiletypeParam')
 
     IO_TYPES = (
         ('o', 'Output'),
@@ -197,22 +187,4 @@ class ToolFiletype( models.Model ):
         return "%s- %s- %s" % (self.tool, self.filetype.name, self.io_type)
     
 
-#class ToolFiletypeParam( models.Model ):
-#    """
-#    Defines which parameters can be used by a tool to generate which input/output #filetypes.  For
-#    example, when running prodigal a user can generate GFF output using these #options:
-#
-#      -o <the path to an output file>
-#      -f gff
-#
-#    If the param's blueprint says this is required and it's empty here, it means #it must
-#    be defined by the user.
-#    """
-#    toolfiletype = models.ForeignKey( ToolFiletype )
-#    command_bp = models.ForeignKey( CommandBlueprint )
-#    commandblueprintparam = models.ForeignKey( CommandBlueprintParam )
-#    
-#    # There are warnings in the model docs about setting null=true on CharFields, #but I couldn't get it to
-#    #  work otherwise.
-#    value = models.CharField( max_length=200, null=True )
-    
+   

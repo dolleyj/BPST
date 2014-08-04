@@ -10,11 +10,7 @@
 {% block content %}
 
 <h1>Tool Name: {{ tool.name }} </h1>
-<p>Input or Output: {{ toolfiletype.io_type }} </p>
-<p>File type: {{ toolfiletype.filetype_id}} </p>
-
-
-
-
-
+<p>Version:  {{ tool.version }} </p>
+<p>Primary Site: <a href="{{tool.primary_site}}">{{tool.primary_site}}</a></p>
+<p>Latest Publication: <a href="{{tool.publication}}">{{tool.publication}}</a></p>
 {% endblock %}

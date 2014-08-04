@@ -2,7 +2,7 @@
 
 {% block sidebar %}
 <ul>
-   <li><a href="/biotools/user_query">Get Pipeline Suggestion</a></li>
+   <li><a href="/biotools/user_query">Get Tool Suggestion</a></li>
    <li><a href="/biotools/all">Bioinformatic Tools</a></li>
    <li><a href="/biotools/add_biotool">Add Bioinformatic Tool</a></li>
 </ul>
@@ -14,12 +14,11 @@
 
 {% if tools.count > 0 %}
 
+<h1>Bioinformatic Tools</h1>
+
 {% for tool in tools %}
 <div>
 <h2><a href="/biotools/get/{{ tool.id }}/">{{ tool.name }}</a></h2>
-<p>Version:  {{ tool.version }} </p>
-<p>Primary Site: {{tool.primary_site}}</a></p>
-<p>Latest Publication: {{tool.publication}}</a></p>
 </div>
 {% endfor %}
 

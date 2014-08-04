@@ -2,7 +2,7 @@
 
 {% block sidebar %}
 <ul>
-   <li><a href="/biotools/user_query">Get Pipeline Suggestion</a></li>
+   <li><a href="/biotools/user_query">Get Tool Suggestion</a></li>
    <li><a href="/biotools/all">Bioinformatic Tools</a></li>
    <li><a href="/biotools/add_biotool">Add Bioinformatic Tool</a></li>
 </ul>
@@ -11,19 +11,32 @@
 
 {% block content %}
 
-	<h1> The tool suggestion will appear here </h1>
+	<h1> Your tool suggestion </h1>
+	<h4> With {% for input in user_input %}<em>{{input}}</em> as your input...{% endfor %}</h4>
+{% if tools.count = 0 %}
+	<p> It seems more files are needed to generate a suggestion. Take a look below.</p>
 
-{% if tools > 2 %}
+{% elif tools.count > 0 %}
 
-	<p> The first tool in your pipeline could be...</p>
+	<p> The first tool in your pipeline could be:</p>
 		
 	{% for tool in tools %}
 		<li> {{tool}} </li>
 	{% endfor %}
 {% else %}
-	
 	<p> {{ tools }}</p>
 {% endif %}
 
+</br>
+{% if add_tool_names %}<hr></hr>
+	<h4> The following tools could be used, if you have additional listed files</h4>
+	{% regroup toolfiletype_entries by tool as tool_list %}
+	{% for tool in tool_list %}
+		<p><strong>{{ tool.grouper }}</strong>, which also requires:</p>
+		    {% for item in tool.list %}
+		    <li>{{ item.filetype }} </li>
+		    {% endfor %}	
+	{% endfor %}
+{% endif %}
 
 {% endblock %}

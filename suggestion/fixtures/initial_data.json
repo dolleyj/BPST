@@ -158,5 +158,635 @@
         "name": "GTF", 
         "format": "GTF"
     }
+},
+{
+    "pk": 17, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.ncbi.nlm.nih.gov/BLAST/blastcgihelp.shtml", 
+        "variant": "Aligned FASTA (Nucleotide)", 
+        "name": "Mulitple Sequence Alignment (Aligned FASTA, Nucleotide)", 
+        "format": "Mulitple Sequence Alignment"
+    }
+},
+{
+    "pk": 18, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://sonnhammer.sbc.su.se/Stockholm.html", 
+        "variant": "Stockholm 1.0 (Nucleotide)", 
+        "name": "Mulitple Sequence Alignment (Stockholm 1.0, Nucleotide)", 
+        "format": "Mulitple Sequence Alignment"
+    }
+},
+{
+    "pk": 19, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://sonnhammer.sbc.su.se/Stockholm.html", 
+        "variant": "Stockholm 1.0 (Protein)", 
+        "name": "Mulitple Sequence Alignment (Stockholm 1.0, Protein)", 
+        "format": "Mulitple Sequence Alignment"
+    }
+},
+{
+    "pk": 20, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.genome.jp/tools/clustalw/clustalw_help.html", 
+        "variant": "CLUSTAL (nucleotide)", 
+        "name": "Mulitple Sequence Alignment (CLUSTAL, Nucleotide)", 
+        "format": "Multiple Sequence Alignment"
+    }
+},
+{
+    "pk": 21, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.genome.jp/tools/clustalw/clustalw_help.html", 
+        "variant": "CLUSTAL (protein)", 
+        "name": "Mulitple Sequence Alignment (CLUSTAL, protein)", 
+        "format": "Multiple Sequence Alignment"
+    }
+},
+{
+    "pk": 22, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://samtools.sourceforge.net/", 
+        "variant": "SAM", 
+        "name": "Mulitple Sequence Alignment (SAM)", 
+        "format": "Multiple Sequence Alignment"
+    }
+},
+{
+    "pk": 23, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://genome.ucsc.edu/FAQ/FAQformat.html#format5.1", 
+        "variant": "BAM", 
+        "name": "Mulitple Sequence Alignment (BAM)", 
+        "format": "Multiple Sequence Alignment"
+    }
+},
+{
+    "pk": 24, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://genome.ucsc.edu/FAQ/FAQformat.html#format1", 
+        "variant": "canonical", 
+        "name": "BED", 
+        "format": "BED"
+    }
+},
+{
+    "pk": 25, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://uswest.ensembl.org/info/website/upload/psl.html", 
+        "variant": "canonical", 
+        "name": "PSL", 
+        "format": "PSL"
+    }
+},
+{
+    "pk": 26, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://ccb.jhu.edu/software/glimmer/glim302notes.pdf", 
+        "variant": "3.02", 
+        "name": "Glimmer3 ICM", 
+        "format": "Glimmer Index"
+    }
+},
+{
+    "pk": 27, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "ftp://selab.janelia.org/pub/software/hmmer3/3.1b1/Userguide.pdf", 
+        "variant": "canonical", 
+        "name": "HMMER hmm", 
+        "format": "HMM"
+    }
+},
+{
+    "pk": 28, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.1000genomes.org/wiki/Analysis/Variant%20Call%20Format/vcf-variant-call-format-version-41", 
+        "variant": "4.1", 
+        "name": "Variant Call Format (VCF) 4.1", 
+        "format": "VCF"
+    }
+},
+{
+    "pk": 29, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.linfo.org/standard_output.html", 
+        "variant": "canonical", 
+        "name": "Standard Output (STDOUT)", 
+        "format": "STDOUT"
+    }
+},
+{
+    "pk": 30, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://en.wikipedia.org/wiki/HTML", 
+        "variant": "canonical", 
+        "name": "HTML", 
+        "format": "HTML"
+    }
+},
+{
+    "pk": 31, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.adobe.com/products/acrobat/adobepdf.html", 
+        "variant": "canonical", 
+        "name": "Adobe PDF", 
+        "format": "PDF"
+    }
+},
+{
+    "pk": 32, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.libpng.org/pub/png/", 
+        "variant": "canonical", 
+        "name": "PNG Image", 
+        "format": "PNG"
+    }
+},
+{
+    "pk": 33, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://epb.lbl.gov/xfig/fig-format.html", 
+        "variant": "canonical", 
+        "name": "Figure Image", 
+        "format": "FIG"
+    }
+},
+{
+    "pk": 34, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.gnuplot.info/docs_4.6/gnuplot.pdf", 
+        "variant": "canonical", 
+        "name": "gnuplot input data", 
+        "format": "gnuplot data"
+    }
+},
+{
+    "pk": 35, 
+    "model": "suggestion.filetype", 
+    "fields": {
+        "spec_url": "http://www.adobe.com/products/postscript/pdfs/postscript_is_20.pdf", 
+        "variant": "canonical", 
+        "name": "PostScript vector graphic", 
+        "format": "PostScript graphic"
+    }
+},
+{
+    "pk": 1, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "3.02", 
+        "primary_site": "http://www.cbcb.umd.edu/software/glimmer/", 
+        "name": "Glimmer", 
+        "publication": "http://www.ncbi.nlm.nih.gov/pubmed/17237039"
+    }
+},
+{
+    "pk": 2, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "3.1b1", 
+        "primary_site": "ftp://selab.janelia.org/pub/software/hmmer3/3.1b1/Userguide.pdf", 
+        "name": "HMMER", 
+        "publication": "http://www.ncbi.nlm.nih.gov/pubmed/21593126?dopt=Abstract"
+    }
+},
+{
+    "pk": 3, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "1.2", 
+        "primary_site": "http://www.cbs.dtu.dk/cgi-bin/nph-runsafe?man=rnammer", 
+        "name": "RNAmmer", 
+        "publication": "http://nar.oxfordjournals.org/content/35/9/3100.full"
+    }
+},
+{
+    "pk": 4, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "3.0", 
+        "primary_site": "http://mummer.sourceforge.net/", 
+        "name": "PROmer", 
+        "publication": "http://mummer.sourceforge.net/MUMmer3.pdf"
+    }
+},
+{
+    "pk": 5, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "2.2.1", 
+        "primary_site": "http://cufflinks.cbcb.umd.edu/index.html", 
+        "name": "Cufflinks", 
+        "publication": "http://www.nature.com/nbt/journal/v28/n5/full/nbt.1621.html"
+    }
+},
+{
+    "pk": 6, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "2.0.12", 
+        "primary_site": "http://ccb.jhu.edu/software/tophat/index.shtml", 
+        "name": "TopHat", 
+        "publication": "http://bioinformatics.oxfordjournals.org/content/25/9/1105.abstract"
+    }
+},
+{
+    "pk": 7, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "1.0", 
+        "primary_site": "http://bowtie-bio.sourceforge.net/index.shtml", 
+        "name": "Bowtie", 
+        "publication": "http://genomebiology.com/2009/10/3/R25"
+    }
+},
+{
+    "pk": 8, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "1", 
+        "primary_site": "http://trinityrnaseq.sourceforge.net", 
+        "name": "Trinity - de novo", 
+        "publication": "http://www.ncbi.nlm.nih.gov/pubmed/21572440"
+    }
+},
+{
+    "pk": 9, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "1", 
+        "primary_site": "http://trinityrnaseq.sourceforge.net/", 
+        "name": "Trinity - Genome-guided", 
+        "publication": "http://www.ncbi.nlm.nih.gov/pubmed/21572440"
+    }
+},
+{
+    "pk": 10, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "3.0", 
+        "primary_site": "http://bioinf.uni-greifswald.de/augustus/", 
+        "name": "Augustus - pre-trained", 
+        "publication": "http://bioinf.uni-greifswald.de/augustus/references"
+    }
+},
+{
+    "pk": 11, 
+    "model": "suggestion.tool", 
+    "fields": {
+        "version": "4.25", 
+        "primary_site": "http://exon.biology.gatech.edu/GeneMark/index.html", 
+        "name": "GeneMarkS", 
+        "publication": "http://www.ncbi.nlm.nih.gov/pubmed/11410670"
+    }
+},
+{
+    "pk": 1, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 1, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Predicts genes from DNA sequences"
+    }
+},
+{
+    "pk": 2, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 1, 
+        "required": true, 
+        "io_type": "o", 
+        "filetype": 5, 
+        "description": "Output is a \"predict\" file containing predicted genes"
+    }
+},
+{
+    "pk": 3, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 2, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Homology Search"
+    }
+},
+{
+    "pk": 4, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 2, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 2, 
+        "description": "Homology Search"
+    }
+},
+{
+    "pk": 5, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 2, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 29, 
+        "description": "Tab-delimited Output"
+    }
+},
+{
+    "pk": 6, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 3, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Predicts ribosomal RNA genes from genome sequence"
+    }
+},
+{
+    "pk": 7, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 3, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 3, 
+        "description": "Output is a FASTA file"
+    }
+},
+{
+    "pk": 8, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 4, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Translates nucleotide sequence into 6-frame amino acid sequences & aligns them to a reference"
+    }
+},
+{
+    "pk": 9, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 4, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 15, 
+        "description": "Output is a MUMmer delta file"
+    }
+},
+{
+    "pk": 10, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 5, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 22, 
+        "description": "RNA-seq Transcript assembly and differential expression & regulation"
+    }
+},
+{
+    "pk": 11, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 5, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 23, 
+        "description": "RNA-seq transcript assembly and differential expression & regulation"
+    }
+},
+{
+    "pk": 12, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 5, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 16, 
+        "description": "Output is a GTF file"
+    }
+},
+{
+    "pk": 13, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 6, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "RNA-seq read mapper"
+    }
+},
+{
+    "pk": 14, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 6, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 6, 
+        "description": "RNA-seq read mapper"
+    }
+},
+{
+    "pk": 15, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 6, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 13, 
+        "description": "Bowtie index is required to run TopHat"
+    }
+},
+{
+    "pk": 16, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 6, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 14, 
+        "description": "Bowtie index is required to run TopHat"
+    }
+},
+{
+    "pk": 17, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 6, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 22, 
+        "description": "Output is a SAM file"
+    }
+},
+{
+    "pk": 18, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 6, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 23, 
+        "description": "Output is a BAM file"
+    }
+},
+{
+    "pk": 19, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 7, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Sequence Alignment"
+    }
+},
+{
+    "pk": 20, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 7, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 6, 
+        "description": "Sequence Alignment"
+    }
+},
+{
+    "pk": 21, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 7, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 22, 
+        "description": "Output is a SAM file"
+    }
+},
+{
+    "pk": 22, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 9, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 6, 
+        "description": "RNA-seq Assembly with Genomic Data "
+    }
+},
+{
+    "pk": 23, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 9, 
+        "required": true, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "RNA-seq Assembly with Genomic Data "
+    }
+},
+{
+    "pk": 24, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 8, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 6, 
+        "description": "RNA-seq Assembly with only RNA-seq data"
+    }
+},
+{
+    "pk": 25, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 9, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 3, 
+        "description": "Output is a FASTA file"
+    }
+},
+{
+    "pk": 26, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 8, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 3, 
+        "description": "Output is a FASTA file"
+    }
+},
+{
+    "pk": 27, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 10, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Eukaryotic gene prediction"
+    }
+},
+{
+    "pk": 28, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 10, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 16, 
+        "description": "Output is a GTF file"
+    }
+},
+{
+    "pk": 29, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 11, 
+        "required": false, 
+        "io_type": "i", 
+        "filetype": 3, 
+        "description": "Prokaryotic gene prediction"
+    }
+},
+{
+    "pk": 30, 
+    "model": "suggestion.toolfiletype", 
+    "fields": {
+        "tool": 11, 
+        "required": false, 
+        "io_type": "o", 
+        "filetype": 1, 
+        "description": "Output is a GFF"
+    }
 }
 ]
